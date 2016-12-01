@@ -65,6 +65,19 @@ var makePerm = function (set,n) {
     }
 };
 
+var table = {};
+var primary_table = {};
+var t = [];
+better_functions.forEach(function (f) {
+    primary_table[f.func(init).toString()] =  f.name;
+});
+better_functions.forEach(function (f) {
+    var r = [];
+    better_functions.forEach(function(g) {
+        var v = f.func(g.func(init));
+        table[f.name+"x"+g.name] = v;
+        r.push(primary_table[v.toString()]); 
+    });
+    t.push(r);
+});
 
-var sss = getSymmetricSet(4);
-sss.forEach(function (f) { console.log(f()); });
