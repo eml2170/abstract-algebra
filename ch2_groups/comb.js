@@ -23,9 +23,48 @@ var fact = function (n) {
 var getSymmetricSet = function (n) {
     var s = [];
     var i = n;
+    var total_perms = fact(n);
+    var ret = [];
     while (i > 0) {
         s.push(i);
         i--;
     }
-
+    while (total_perms > 0) {
+        ret.push(makePerm(s,total_perms));
+        total_perms--;
+    }
+    return ret;
 };
+/*
+1 [1,2,3]
+2 [1,3,2]
+3 [3,1,2]
+4 [3,2,1]
+5 [2,3,1]
+6 [2,1,3]
+*/
+var makePerm = function (set,n) {
+    set = set.slice();
+    n--; // 0 align this
+    var i = set.length-1;
+    var swap;
+    while (n>0) {
+        if (i == 0) {
+            i = set.length-1;
+        }
+        swap = set[i];
+        set[i] = set[i-1];
+        set[i-1] = swap;
+        //console.log(swap);
+        //console.log(set);
+        i--;
+        n--;
+    }
+    return function () {
+        return set;
+    }
+};
+
+
+var sss = getSymmetricSet(4);
+sss.forEach(function (f) { console.log(f()); });
