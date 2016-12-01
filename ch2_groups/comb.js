@@ -60,15 +60,16 @@ var makePerm = function (set,n) {
     }
     return nameFunction(function (ns) {
         if (!ns) { return set; }
-        ns = ns.slice(); // clone this set
+        var clone_ns = ns.slice(); // clone this set
         var i,ii;
+        // [2,1,3] = set
+        // [1,2,3] = ns
+        // [2,1,3] = clone_ns
         for (i=0,ii=set.length;i<ii;i++) {
             var index = set[i]-1;
-            var swap = ns[i];
-            ns[i] = ns[index];
-            ns[index] = swap;
+            clone_ns[i] = ns[index];
         }
-        return ns;
+        return clone_ns;
     });
 };
 
@@ -78,13 +79,14 @@ var computeTable = function (n) {
     var table = {};
     var primary_table = {};
     var t = [];
+    var init = better_functions[0].func(); // get an initial set
     better_functions.forEach(function (f) {
-        primary_table[f.func().toString()] =  f.name;
+        primary_table[f.func(init).toString()] =  f.name;
     });
     better_functions.forEach(function (f) {
         var r = [];
         better_functions.forEach(function(g) {
-            var v = f.func(g.func());
+            var v = f.func(g.func(init));
             table[f.name+"x"+g.name] = v;
             r.push(primary_table[v.toString()]); 
         });
