@@ -2,7 +2,7 @@ var nameFunction = (function () {
     var itoa = String.fromCharCode;
     var initCharCode = 'a'.charCodeAt(0);
     var i = 0;
-    var ALPHA_LIMIT = 26;
+    var ALPHA_LIMIT = 26*2;
     return function (f) {
         if (i >= ALPHA_LIMIT) {
             throw new Error();
@@ -94,10 +94,8 @@ var computeTable = function (n) {
         });
         t.push(r);
     });
-    console.log(primary_table);
-    console.log(table);
-    return t;
+    return {identities:t,primary_table:primary_table,table:table}
 };
 
-console.log(computeTable(3));
+console.log(computeTable(4));
 
