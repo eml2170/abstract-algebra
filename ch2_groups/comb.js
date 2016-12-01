@@ -81,7 +81,7 @@ var computeTable = function (n) {
     var t = [];
     var init = better_functions[0].func(); // get an initial set
     better_functions.forEach(function (f) {
-        primary_table[f.func(init).toString()] =  f.name;
+        primary_table[f.func().toString()] =  f.name;
     });
     better_functions.forEach(function (f) {
         var r = [];
