@@ -22,16 +22,18 @@ var fact = function (n) {
 
 var getSymmetricSet = function (n) {
     var s = [];
-    var i = n;
+    var ii = n;
+    var i = 1;
     var total_perms = fact(n);
     var ret = [];
-    while (i > 0) {
+    while (i <= ii) {
         s.push(i);
-        i--;
+        i++;
     }
-    while (total_perms > 0) {
-        ret.push(makePerm(s,total_perms));
-        total_perms--;
+    i=1;
+    while (i<=total_perms) {
+        ret.push(makePerm(s,i));
+        i++;
     }
     return ret;
 };
