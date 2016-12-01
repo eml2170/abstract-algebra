@@ -44,7 +44,7 @@ var getSymmetricSet = function (n) {
 6 [2,1,3]
 */
 var makePerm = function (set,n) {
-    set = set.slice();
+    set = set.slice(); // clone this set
     n--; // 0 align this
     var i = set.length-1;
     var swap;
@@ -55,29 +55,45 @@ var makePerm = function (set,n) {
         swap = set[i];
         set[i] = set[i-1];
         set[i-1] = swap;
-        //console.log(swap);
-        //console.log(set);
         i--;
         n--;
     }
-    return function () {
-        return set;
-    }
+    return nameFunction(function (ns) {
+        if (!ns) { return set; }
+        ns = ns.slice(); // clone this set
+        var i,ii;
+        for (i=0,ii=set.length;i<ii;i++) {
+            var index = set[i]-1;
+            var swap = ns[i];
+            ns[i] = ns[index];
+            ns[index] = swap;
+        }
+        return ns;
+    });
 };
 
-var table = {};
-var primary_table = {};
-var t = [];
-better_functions.forEach(function (f) {
-    primary_table[f.func(init).toString()] =  f.name;
-});
-better_functions.forEach(function (f) {
-    var r = [];
-    better_functions.forEach(function(g) {
-        var v = f.func(g.func(init));
-        table[f.name+"x"+g.name] = v;
-        r.push(primary_table[v.toString()]); 
+var computeTable = function (n) {
+    var better_functions = getSymmetricSet(n);
+
+    var table = {};
+    var primary_table = {};
+    var t = [];
+    better_functions.forEach(function (f) {
+        primary_table[f.func().toString()] =  f.name;
     });
-    t.push(r);
-});
+    better_functions.forEach(function (f) {
+        var r = [];
+        better_functions.forEach(function(g) {
+            var v = f.func(g.func());
+            table[f.name+"x"+g.name] = v;
+            r.push(primary_table[v.toString()]); 
+        });
+        t.push(r);
+    });
+    console.log(primary_table);
+    console.log(table);
+    return t;
+};
+
+console.log(computeTable(3));
 
