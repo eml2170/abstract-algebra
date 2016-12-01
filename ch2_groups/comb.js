@@ -30,36 +30,40 @@ var getSymmetricSet = function (n) {
         s.push(i);
         i++;
     }
-    i=1;
-    while (i<=total_perms) {
-        ret.push(makePerm(s,i));
+    var all_perms = generatePermutations(s);
+    i=0;
+    while (i<total_perms) {
+        ret.push(makePerm(all_perms[i]));
         i++;
     }
     return ret;
 };
-/*
-1 [1,2,3]
-2 [1,3,2]
-3 [3,1,2]
-4 [3,2,1]
-5 [2,3,1]
-6 [2,1,3]
-*/
-var makePerm = function (set,n) {
-    set = set.slice(); // clone this set
-    n--; // 0 align this
-    var i = set.length-1;
-    var swap;
-    while (n>0) {
-        if (i == 0) {
-            i = set.length-1;
-        }
-        swap = set[i];
-        set[i] = set[i-1];
-        set[i-1] = swap;
-        i--;
-        n--;
+
+var generatePermutations = function (set) {
+    set = set.slice();
+    if (set.length<2) {
+        throw new Error();
     }
+    if (set.length == 2) {
+        return [set,[set[1],set[0]]];
+    }
+    var ret = [];
+    var i,ii;
+    var subs;
+    var head;
+    for (i=0,ii=set.length;i<ii;i++) {
+        head = set.shift();
+        subs = generatePermutations(set);
+        subs.forEach(function (s) {
+            s.unshift(head);
+            ret.push(s);
+        });
+        set.push(head);
+    }
+    return ret;
+};
+    
+var makePerm = function (set) {
     return nameFunction(function (ns) {
         if (!ns) { return set; }
         var clone_ns = ns.slice(); // clone this set
@@ -77,7 +81,6 @@ var makePerm = function (set,n) {
 
 var computeTable = function (n) {
     var better_functions = getSymmetricSet(n);
-
     var table = {};
     var primary_table = {};
     var t = [];
@@ -98,4 +101,3 @@ var computeTable = function (n) {
 };
 
 console.log(computeTable(4));
-
