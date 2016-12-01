@@ -62,7 +62,7 @@ var generatePermutations = function (set) {
     }
     return ret;
 };
-    
+
 var makePerm = function (set) {
     return nameFunction(function (ns) {
         if (!ns) { return set; }
