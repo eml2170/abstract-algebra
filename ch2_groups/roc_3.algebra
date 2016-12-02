@@ -27,3 +27,18 @@
      5)  (c^-1b)a^-1 (4, assoc), as required
 
 3.2
+  ar = a -> r = u forall a,r:G, where G is a group
+  
+  1) ar = a 
+  2) ar = au -> r = u  (1,left cancellation), as required
+
+3.3
+  In a group of 2n elements, show that there is an element not the unit that is it's own inverse
+
+    1) there-exists some x in G (2n members) such: xx = 1 and x != u (hyp)
+    2) forall y:G, there exists a unique y' such that yy' = u (rule 3)
+    3) u is it's own inverse (evident)
+    4) then there are 2n-1 elements in G that each have a unique inverse 
+    5) but then there must be one element with a unique inverse of itself (pigeon hole principle)
+
+  
