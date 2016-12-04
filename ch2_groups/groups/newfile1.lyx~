@@ -935,5 +935,307 @@ R
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Exhibit an isomorphism of the additive groups 
+\begin_inset Formula $Z_{6}$
+\end_inset
+
+and 
+\begin_inset Formula $Z_{2}xZ_{3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In other words, show that there is a function f:
+\begin_inset Formula $\{Z_{6},+,1\}$
+\end_inset
+
+-> 
+\begin_inset Formula $\{Z_{2}xZ_{3},+',1\}$
+\end_inset
+
+ such that f(x+y) = f(x)+'f(y) and f is bijective.
+\end_layout
+
+\begin_layout Standard
+We can construct a simple function table as follows
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Z_{6}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Z_{2}xZ_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0x0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0x1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0x2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1x0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1x1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1x2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So f(n) = q x r for n = q(3)+r
+\end_layout
+
+\begin_layout Standard
+Clearly, this function is bijective.
+\end_layout
+
+\begin_layout Standard
+Now we have to show that it is a morphism.
+ We can do this informally.
+\end_layout
+
+\begin_layout Standard
+First, observe that the ρ function defined in Chapter 1,Theorem 16 is a
+ morphism.
+ 
+\end_layout
+
+\begin_layout Standard
+But, all f is is a function that carries 
+\begin_inset Formula $Z_{6}$
+\end_inset
+
+into it's remainder and quotient mod 3.
+ 
+\end_layout
+
+\begin_layout Standard
+So, f is a morphism.
+ 
+\end_layout
+
+\begin_layout Standard
+Thus, f is bijective, as required.
+\end_layout
+
+\begin_layout Standard
+4.
+ Show that the group 
+\begin_inset Formula $Z_{2}xZ_{2}$
+\end_inset
+
+is not isomorphic to Z
+\begin_inset Formula $_{4}$
+\end_inset
+
+but is isomorphic to the group of all symmetries of a rectangle.
+\end_layout
+
+\begin_layout Standard
+First, we must show that there is no function f:
+\begin_inset Formula $\{Z_{2}xZ_{2},+,1\}->\{Z_{4},+',1\}$
+\end_inset
+
+ such that f is bijective and f(x+y) = f(x)+'f(y).
+\end_layout
+
+\begin_layout Standard
+First, we can observe that +' is not bijective-- (a+a) = (b+b) = (c+c) =
+ 0
+\end_layout
+
+\begin_layout Standard
+Then, suppose we have an f that is bijective and morphism.
+\end_layout
+
+\begin_layout Standard
+Suppose in our biject that f(x) = 0, f(y) = a, f(z) = b, f(i) = c, for some
+ x,y,z,i in 
+\begin_inset Formula $Z_{4}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then f(y+y) = f(z+z) = f(i+i) = f(x) = 0 
+\end_layout
+
+\begin_layout Standard
+Then (y+y) = (z+z) = (i+i) = x, since f is bijective
+\end_layout
+
+\begin_layout Standard
+But for + in 
+\begin_inset Formula $Z_{4}$
+\end_inset
+
+only two pairs of numbers add to the same sum, 2 and 4
+\end_layout
+
+\begin_layout Standard
+Then y = z or z = i or y=i.
+ either choice is absurd.
+ 
+\end_layout
+
+\begin_layout Standard
+Therefore f cannot be both bijective and a morphism, as required.
+ 
+\end_layout
+
+\begin_layout Standard
+For the second part 
+\end_layout
+
 \end_body
 \end_document
