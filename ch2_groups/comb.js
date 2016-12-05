@@ -100,4 +100,4 @@ var computeTable = function (n) {
     return {identities:t,primary_table:primary_table,table:table}
 };
 
-console.log(computeTable(4));
+console.log(computeTable(3));
